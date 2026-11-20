@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1: Thay Đổi Lời Chào Theo Tên | LHU Tuần 10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #1e293b;
+      font-size: 1.4rem;
+    }
+    p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .form-group {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #334155;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      box-sizing: border-box;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus {
+      border-color: #3b82f6;
+    }
+    button {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .greeting-message {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: none;
+    }
+    .success {
+      display: block;
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+    .error {
+      display: block;
+      background-color: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    .back-home {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-home:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Bài 1: Lời Chào Theo Tên</h2>
+    <p>Nhập tên của bạn và nhấn nút. Lời chào sẽ xuất hiện trực tiếp lên giao diện thay vì alert.</p>
+    
+    <div class="form-group">
+      <label for="name-input">Họ và tên của bạn:</label>
+      <input type="text" id="name-input" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="off">
+    </div>
+
+    <button id="greet-btn">Gửi Lời Chào</button>
+
+    <div id="greeting-display" class="greeting-message"></div>
+
+    <a href="../../index.html" class="back-home">← Quay lại trang chủ Tuần 10</a>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById('name-input');
+    const greetBtn = document.getElementById('greet-btn');
+    const greetingDisplay = document.getElementById('greeting-display');
+
+    function showGreeting() {
+      const name = nameInput.value.trim();
+      if (name === '') {
+        greetingDisplay.className = 'greeting-message error';
+        greetingDisplay.innerText = '⚠️ Vui lòng nhập tên trước khi nhấn nút!';
+        nameInput.focus();
+        return;
+      }
+      greetingDisplay.className = 'greeting-message success';
+      greetingDisplay.innerText = `👋 Chào mừng ${name}! Chúc bạn một ngày học tập hiệu quả.`;
+    }
+
+    greetBtn.addEventListener('click', showGreeting);
+    nameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') showGreeting();
+    });
+  </script>
+</body>
+</html>

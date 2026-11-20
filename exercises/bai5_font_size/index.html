@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 5: Thay Đổi Kích Thước Văn Bản | LHU Tuần 10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 520px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+    p.desc {
+      color: #64748b;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+    .text-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      min-height: 120px;
+    }
+    #sample-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1e293b;
+      margin: 0;
+      transition: font-size 0.2s ease;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    button.primary {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+    button.primary:hover {
+      background: #1d4ed8;
+    }
+    .status {
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-home:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Bài 5: Thay Đổi Kích Thước Văn Bản</h2>
+    <p class="desc">Bấm nút "Phóng to" hoặc "Thu nhỏ" để tăng/giảm kích thước chữ 2px.</p>
+
+    <div class="status">Cỡ chữ hiện tại: <span id="font-display">16px</span></div>
+
+    <div class="text-box">
+      <p id="sample-text">
+        "DOM (Document Object Model) cho phép JavaScript truy xuất và thay đổi các thuộc tính CSS như fontSize, color, display theo thời gian thực để tạo trải nghiệm người dùng sống động."
+      </p>
+    </div>
+
+    <div class="btn-group">
+      <button class="primary" id="btn-zoom-in">➕ Phóng to (+2px)</button>
+      <button id="btn-zoom-out">➖ Thu nhỏ (-2px)</button>
+      <button id="btn-reset" style="flex: 0 0 50px;">🔄</button>
+    </div>
+
+    <a href="../../index.html" class="back-home">← Quay lại trang chủ Tuần 10</a>
+  </div>
+
+  <script>
+    const sampleText = document.getElementById('sample-text');
+    const fontDisplay = document.getElementById('font-display');
+    const btnZoomIn = document.getElementById('btn-zoom-in');
+    const btnZoomOut = document.getElementById('btn-zoom-out');
+    const btnReset = document.getElementById('btn-reset');
+
+    let currentSize = 16;
+
+    function applyFontSize() {
+      sampleText.style.fontSize = currentSize + 'px';
+      fontDisplay.innerText = currentSize + 'px';
+    }
+
+    btnZoomIn.addEventListener('click', () => {
+      if (currentSize < 34) {
+        currentSize += 2;
+        applyFontSize();
+      }
+    });
+
+    btnZoomOut.addEventListener('click', () => {
+      if (currentSize > 10) {
+        currentSize -= 2;
+        applyFontSize();
+      }
+    });
+
+    btnReset.addEventListener('click', () => {
+      currentSize = 16;
+      applyFontSize();
+    });
+  </script>
+</body>
+</html>

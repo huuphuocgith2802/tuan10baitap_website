@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kbBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="rgbBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="25%" stop-color="#eab308"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="75%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="keyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background plate -->
+  <rect width="600" height="400" fill="url(#kbBg)"/>
+  <!-- Ambient RGB underglow -->
+  <rect x="70" y="90" width="460" height="220" rx="20" fill="url(#rgbBar)" opacity="0.3" filter="blur(15px)"/>
+  <!-- Keyboard chassis -->
+  <rect x="80" y="100" width="440" height="200" rx="14" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <!-- RGB Edge accent -->
+  <rect x="88" y="108" width="424" height="6" rx="3" fill="url(#rgbBar)"/>
+  <!-- Key rows -->
+  <!-- Row 1 -->
+  <g fill="url(#keyGrad)" stroke="#475569" stroke-width="1" rx="4">
+    <rect x="98" y="125" width="28" height="25" rx="4"/>
+    <rect x="131" y="125" width="28" height="25" rx="4"/>
+    <rect x="164" y="125" width="28" height="25" rx="4"/>
+    <rect x="197" y="125" width="28" height="25" rx="4"/>
+    <rect x="230" y="125" width="28" height="25" rx="4"/>
+    <rect x="263" y="125" width="28" height="25" rx="4"/>
+    <rect x="296" y="125" width="28" height="25" rx="4"/>
+    <rect x="329" y="125" width="28" height="25" rx="4"/>
+    <rect x="362" y="125" width="28" height="25" rx="4"/>
+    <rect x="395" y="125" width="28" height="25" rx="4"/>
+    <rect x="428" y="125" width="28" height="25" rx="4"/>
+    <rect x="461" y="125" width="41" height="25" rx="4" fill="#6366f1"/>
+  </g>
+  <!-- Row 2 -->
+  <g fill="url(#keyGrad)" stroke="#475569" stroke-width="1">
+    <rect x="98" y="156" width="36" height="25" rx="4"/>
+    <rect x="139" y="156" width="28" height="25" rx="4"/>
+    <rect x="172" y="156" width="28" height="25" rx="4"/>
+    <rect x="205" y="156" width="28" height="25" rx="4"/>
+    <rect x="238" y="156" width="28" height="25" rx="4"/>
+    <rect x="271" y="156" width="28" height="25" rx="4"/>
+    <rect x="304" y="156" width="28" height="25" rx="4"/>
+    <rect x="337" y="156" width="28" height="25" rx="4"/>
+    <rect x="370" y="156" width="28" height="25" rx="4"/>
+    <rect x="403" y="156" width="28" height="25" rx="4"/>
+    <rect x="436" y="156" width="28" height="25" rx="4"/>
+    <rect x="469" y="156" width="33" height="25" rx="4"/>
+  </g>
+  <!-- Row 3 -->
+  <g fill="url(#keyGrad)" stroke="#475569" stroke-width="1">
+    <rect x="98" y="187" width="45" height="25" rx="4"/>
+    <rect x="148" y="187" width="28" height="25" rx="4"/>
+    <rect x="181" y="187" width="28" height="25" rx="4"/>
+    <rect x="214" y="187" width="28" height="25" rx="4"/>
+    <rect x="247" y="187" width="28" height="25" rx="4"/>
+    <rect x="280" y="187" width="28" height="25" rx="4"/>
+    <rect x="313" y="187" width="28" height="25" rx="4"/>
+    <rect x="346" y="187" width="28" height="25" rx="4"/>
+    <rect x="379" y="187" width="28" height="25" rx="4"/>
+    <rect x="412" y="187" width="28" height="25" rx="4"/>
+    <rect x="445" y="187" width="57" height="25" rx="4" fill="#06b6d4"/>
+  </g>
+  <!-- Space row -->
+  <g fill="url(#keyGrad)" stroke="#475569" stroke-width="1">
+    <rect x="98" y="218" width="40" height="25" rx="4"/>
+    <rect x="143" y="218" width="32" height="25" rx="4"/>
+    <rect x="180" y="218" width="32" height="25" rx="4"/>
+    <rect x="217" y="218" width="168" height="25" rx="4" fill="#3b82f6"/>
+    <rect x="390" y="218" width="32" height="25" rx="4"/>
+    <rect x="427" y="218" width="32" height="25" rx="4"/>
+    <rect x="464" y="218" width="38" height="25" rx="4"/>
+  </g>
+  <!-- Indicator lights -->
+  <circle cx="485" cy="270" r="3" fill="#10b981"/>
+  <circle cx="475" cy="270" r="3" fill="#06b6d4"/>
+  <circle cx="465" cy="270" r="3" fill="#8b5cf6"/>
+  <!-- Badge -->
+  <text x="300" y="350" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#f8fafc" text-anchor="middle">LHU Mechanical Keyboard Pro RGB</text>
+  <text x="300" y="375" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Switch cơ học Hot-swap • LED RGB 16.8 triệu màu</text>
+</svg>

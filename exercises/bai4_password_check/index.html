@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 4: Kiểm Tra Độ Dài Mật Khẩu | LHU Tuần 10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 440px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+    p {
+      color: #64748b;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #334155;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      box-sizing: border-box;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="password"]:focus {
+      border-color: #3b82f6;
+    }
+    .message {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      min-height: 24px;
+    }
+    .msg-short {
+      color: #ef4444;
+    }
+    .msg-valid {
+      color: #10b981;
+    }
+    .meter {
+      height: 6px;
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 4px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.25s, background-color 0.25s;
+    }
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-home:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Bài 4: Kiểm Tra Độ Dài Mật Khẩu</h2>
+    <p>Gõ mật khẩu vào ô bên dưới để kiểm tra điều kiện độ dài (>= 8 ký tự).</p>
+
+    <div>
+      <label for="password-input">Mật khẩu:</label>
+      <input type="password" id="password-input" placeholder="Nhập ít nhất 8 ký tự..." autocomplete="new-password">
+    </div>
+
+    <div class="meter">
+      <div id="meter-fill" class="meter-fill"></div>
+    </div>
+
+    <div id="status-msg" class="message">Chưa nhập mật khẩu.</div>
+
+    <a href="../../index.html" class="back-home">← Quay lại trang chủ Tuần 10</a>
+  </div>
+
+  <script>
+    const pwdInput = document.getElementById('password-input');
+    const statusMsg = document.getElementById('status-msg');
+    const meterFill = document.getElementById('meter-fill');
+
+    pwdInput.addEventListener('input', () => {
+      const len = pwdInput.value.length;
+
+      if (len === 0) {
+        statusMsg.innerText = 'Chưa nhập mật khẩu.';
+        statusMsg.className = 'message';
+        meterFill.style.width = '0%';
+        meterFill.style.backgroundColor = 'transparent';
+        return;
+      }
+
+      if (len < 8) {
+        // < 8 ký tự: hiện màu đỏ "Mật khẩu quá ngắn"
+        statusMsg.innerText = `❌ Mật khẩu quá ngắn (${len}/8 ký tự)`;
+        statusMsg.className = 'message msg-short';
+        meterFill.style.width = `${(len / 8) * 60}%`;
+        meterFill.style.backgroundColor = '#ef4444';
+      } else {
+        // >= 8 ký tự: hiện màu xanh "Mật khẩu hợp lệ"
+        statusMsg.innerText = `✔️ Mật khẩu hợp lệ (${len} ký tự)`;
+        statusMsg.className = 'message msg-valid';
+        meterFill.style.width = '100%';
+        meterFill.style.backgroundColor = '#10b981';
+      }
+    });
+  </script>
+</body>
+</html>

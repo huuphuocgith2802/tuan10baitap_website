@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7e5f"/>
+      <stop offset="50%" stop-color="#feb47b"/>
+      <stop offset="100%" stop-color="#ffeccc"/>
+    </linearGradient>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#fff176"/>
+      <stop offset="100%" stop-color="#ffa726"/>
+    </radialGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="800" height="500" fill="url(#skyGrad1)"/>
+  <!-- Sun -->
+  <circle cx="400" cy="240" r="85" fill="url(#sunGrad)"/>
+  <!-- Distant mountains -->
+  <polygon points="50,500 240,260 410,500" fill="#9c27b0" opacity="0.4"/>
+  <polygon points="320,500 520,220 720,500" fill="#673ab7" opacity="0.5"/>
+  <!-- Middle mountains -->
+  <polygon points="-50,500 160,280 380,500" fill="#3f51b5" opacity="0.7"/>
+  <polygon points="260,500 480,310 700,500" fill="#303f9f" opacity="0.75"/>
+  <!-- Foreground peaks -->
+  <polygon points="80,500 320,340 560,500" fill="#1a237e" opacity="0.9"/>
+  <polygon points="460,500 660,320 860,500" fill="#0d1b2a"/>
+  <polygon points="-80,500 120,360 320,500" fill="#0d1b2a"/>
+  <!-- Caption tag -->
+  <rect x="30" y="30" width="230" height="42" rx="21" fill="rgba(0,0,0,0.4)"/>
+  <text x="145" y="57" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">🏔️ Bình Minh Trên Núi</text>
+</svg>

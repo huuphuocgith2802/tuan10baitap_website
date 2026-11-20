@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 Hoạt Động Thực Hành Trên Lớp | LHU Tuần 10</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    body { padding: 40px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../../index.html" class="btn btn-secondary btn-sm" style="margin-bottom: 24px;">← Quay lại Trang Chủ Tổng Hợp</a>
+    <h1 style="margin-bottom: 8px;">🏫 3 Hoạt Động Thực Hành Trên Lớp (In-Class)</h1>
+    <p style="color: var(--text-muted); margin-bottom: 32px;">Học phần 111101 · Thiết Kế Web · Đại học Lạc Hồng</p>
+
+    <div class="grid-3">
+      <!-- Hoạt động 1 -->
+      <div class="card">
+        <h3>Hoạt Động 1: The Element Picker</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin: 8px 0 16px;">
+          Sử dụng <code>querySelector</code> và <code>querySelectorAll</code> đổi màu chữ menu.
+        </p>
+        <div class="menu-demo-box">
+          <ul id="menu">
+            <li><a href="#" class="menu-item">Trang chủ</a></li>
+            <li><a href="#" class="menu-item">Sản phẩm</a></li>
+            <li><a href="#" class="menu-item">Giới thiệu</a></li>
+            <li><a href="#" class="menu-item">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button id="btn-picker-inspect" class="btn btn-outline btn-sm">🔍 console.log(document.querySelector('.menu-item'))</button>
+          <button id="btn-picker-color-red" class="btn btn-primary btn-sm">🔴 Đổi màu chữ menu sang đỏ (#menu a)</button>
+          <button id="btn-picker-reset" class="btn btn-secondary btn-sm">🔄 Đặt lại mặc định</button>
+        </div>
+        <div id="picker-console-output" class="console-output">> Sẵn sàng...</div>
+      </div>
+
+      <!-- Hoạt động 2 -->
+      <div class="card">
+        <h3>Hoạt Động 2: Light Switch</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin: 8px 0 16px;">
+          Thay đổi thuộc tính <code>src</code> của thẻ &lt;img&gt; và bật/tắt Dark Mode.
+        </p>
+        <div class="light-switch-container">
+          <div class="bulb-wrapper">
+            <img id="bulb-image" class="bulb-image" src="../../assets/images/bulb_off.svg" alt="Bóng đèn tắt">
+          </div>
+          <div id="bulb-status" class="bulb-status-text">
+            🌑 Trạng thái: <span style="color:var(--text-muted);font-weight:700;">ĐÈN ĐANG TẮT</span>
+          </div>
+          <div class="switch-actions">
+            <button id="bulb-toggle-btn" class="btn btn-primary">Bật Đèn</button>
+            <button id="toggle-btn" class="btn btn-secondary">🌙 Dark Mode</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hoạt động 3 -->
+      <div class="card">
+        <h3>Hoạt Động 3: Live Input</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin: 8px 0 16px;">
+          Lắng nghe sự kiện <code>input</code> để phản hồi tức thì lên thẻ &lt;span&gt; và &lt;h2&gt;.
+        </p>
+        <div class="form-group">
+          <label for="live-text-input" class="form-label">Gõ văn bản bất kỳ:</label>
+          <input type="text" id="live-text-input" class="form-control" placeholder="Gõ thử vào đây...">
+          <div style="text-align: right; margin-top: 4px;">
+            <span id="live-char-count" class="badge badge-primary">0 ký tự</span>
+          </div>
+        </div>
+        <div class="live-mirror-card">
+          <div class="live-mirror-label">Kết quả cập nhật thẻ &lt;h2&gt;:</div>
+          <h2 id="live-h2-output" class="live-h2-display">Nội dung tức thì...</h2>
+          <div class="live-span-wrapper">
+            Thẻ &lt;span&gt;: <span id="live-span-output" class="live-span-output">(Trống)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/inclass.js"></script>
+</body>
+</html>

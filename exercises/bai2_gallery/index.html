@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2: Bộ Sưu Tập Ảnh (Simple Gallery) | LHU Tuần 10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .gallery-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 600px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+    p {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .main-image-wrapper {
+      width: 100%;
+      height: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0f172a;
+      border: 2px solid #e2e8f0;
+    }
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease;
+    }
+    .caption {
+      margin: 12px 0 16px;
+      font-weight: 700;
+      color: #2563eb;
+      font-size: 0.95rem;
+    }
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .thumb {
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+      background: #0f172a;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .thumb:hover {
+      transform: translateY(-2px);
+    }
+    .thumb.active {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.3);
+    }
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-home:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-card">
+    <h2>Bài 2: Bộ Sưu Tập Ảnh (Simple Gallery)</h2>
+    <p>Click vào các ảnh thu nhỏ bên dưới để thay đổi ảnh lớn hiển thị.</p>
+
+    <div class="main-image-wrapper">
+      <img id="main-img" class="main-image" src="../../assets/images/gallery_1.svg" alt="Bình Minh Trên Núi">
+    </div>
+
+    <div id="image-caption" class="caption">🖼️ Ảnh hiện tại: Bình Minh Trên Núi</div>
+
+    <div class="thumbnails">
+      <div class="thumb active" data-title="Bình Minh Trên Núi">
+        <img src="../../assets/images/gallery_1.svg" alt="Bình Minh Trên Núi">
+      </div>
+      <div class="thumb" data-title="Hoàng Hôn Biển Xanh">
+        <img src="../../assets/images/gallery_2.svg" alt="Hoàng Hôn Biển Xanh">
+      </div>
+      <div class="thumb" data-title="Thác Nước Rừng Xanh">
+        <img src="../../assets/images/gallery_3.svg" alt="Thác Nước Rừng Xanh">
+      </div>
+      <div class="thumb" data-title="Cực Quang Bầu Trời Đêm">
+        <img src="../../assets/images/gallery_4.svg" alt="Cực Quang Bầu Trời Đêm">
+      </div>
+    </div>
+
+    <a href="../../index.html" class="back-home">← Quay lại trang chủ Tuần 10</a>
+  </div>
+
+  <script>
+    const mainImg = document.getElementById('main-img');
+    const caption = document.getElementById('image-caption');
+    const thumbs = document.querySelectorAll('.thumb');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const img = thumb.querySelector('img');
+        if (!img) return;
+
+        // Đổi thuộc tính src và alt
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = img.src;
+          mainImg.alt = img.alt;
+          mainImg.style.opacity = '1';
+        }, 150);
+
+        caption.innerText = `🖼️ Ảnh hiện tại: ${thumb.dataset.title || img.alt}`;
+
+        // Cập nhật viền active
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

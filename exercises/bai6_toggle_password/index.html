@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 6: Ẩn / Hiện Mật Khẩu | LHU Tuần 10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 440px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+    p {
+      color: #64748b;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 12px 75px 12px 14px;
+      box-sizing: border-box;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus {
+      border-color: #3b82f6;
+    }
+    button.toggle-btn {
+      position: absolute;
+      right: 6px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    button.toggle-btn:hover {
+      background: #e2e8f0;
+    }
+    .hint {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-home:hover {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Bài 6: Ẩn / Hiện Mật Khẩu</h2>
+    <p>Bấm nút "Hiện" để chuyển type="password" thành type="text" và ngược lại.</p>
+
+    <div>
+      <label for="password-field">Mật khẩu:</label>
+      <div class="input-wrapper">
+        <input type="password" id="password-field" value="LacHongUniv@2026">
+        <button type="button" class="toggle-btn" id="toggle-btn">
+          <span id="eye-icon">👁️</span>
+          <span id="toggle-label">Hiện</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hint">
+      Trạng thái thuộc tính <code>type</code>: <strong id="type-state">password</strong>
+    </div>
+
+    <a href="../../index.html" class="back-home">← Quay lại trang chủ Tuần 10</a>
+  </div>
+
+  <script>
+    const pwdField = document.getElementById('password-field');
+    const toggleBtn = document.getElementById('toggle-btn');
+    const eyeIcon = document.getElementById('eye-icon');
+    const toggleLabel = document.getElementById('toggle-label');
+    const typeState = document.getElementById('type-state');
+
+    toggleBtn.addEventListener('click', () => {
+      if (pwdField.type === 'password') {
+        pwdField.type = 'text';
+        toggleLabel.innerText = 'Ẩn';
+        eyeIcon.innerText = '🔒';
+        typeState.innerText = 'text';
+      } else {
+        pwdField.type = 'password';
+        toggleLabel.innerText = 'Hiện';
+        eyeIcon.innerText = '👁️';
+        typeState.innerText = 'password';
+      }
+      pwdField.focus();
+    });
+  </script>
+</body>
+</html>

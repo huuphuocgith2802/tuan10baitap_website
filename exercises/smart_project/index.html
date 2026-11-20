@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Smart Project: Modal Form Không Tải Lại Trang | LHU Tuần 10</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    body { padding: 40px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../../index.html" class="btn btn-secondary btn-sm" style="margin-bottom: 24px;">← Quay lại Trang Chủ Tổng Hợp</a>
+    
+    <div class="section-header">
+      <span class="badge-pill">🎯 Group Challenge · Thách Thức Nhóm</span>
+      <h1 class="section-title">The Smart Project: Modal Đặt Hàng & Liên Hệ</h1>
+      <p class="section-desc">
+        Tạo tương tác với Modal Popup, chặn reload trang với <code>event.preventDefault()</code> và phản hồi mượt mà.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Sản phẩm 1 -->
+      <div class="card product-card">
+        <div class="product-image-container">
+          <span class="product-tag">Bán Chạy Nhất</span>
+          <img src="../../assets/images/product_keyboard.svg" alt="Bàn phím cơ LHU RGB Pro">
+        </div>
+        <div class="card-title-group">
+          <h3 class="product-title">Bàn Phím Cơ LHU Pro RGB Custom</h3>
+          <p>Phiên bản độc quyền sinh viên Đại học Lạc Hồng</p>
+        </div>
+        <div class="product-price">1.890.000 VNĐ</div>
+        <ul class="product-features">
+          <li>✔️ Switch cơ học Red/Blue thay nóng (Hot-swap)</li>
+          <li>✔️ LED RGB 16.8 triệu màu với 20 hiệu ứng sống động</li>
+          <li>✔️ Kết nối 3 chế độ: Type-C, Bluetooth 5.1 & Wireless 2.4G</li>
+        </ul>
+        <div class="product-actions">
+          <button class="btn btn-primary btn-buy-action">🛒 Mua Hàng Ngay</button>
+          <button class="btn btn-outline btn-contact-action">✉️ Tư Vấn Thêm</button>
+        </div>
+      </div>
+
+      <!-- Sản phẩm 2 -->
+      <div class="card product-card">
+        <div class="product-image-container">
+          <span class="product-tag">Công Nghệ Mới</span>
+          <img src="../../assets/images/product_headphone.svg" alt="Tai nghe ANC Studio Ultra">
+        </div>
+        <div class="card-title-group">
+          <h3 class="product-title">Tai Nghe Không Dây ANC Studio Ultra</h3>
+          <p>Chống ồn chủ động chuyên sâu cho lập trình viên</p>
+        </div>
+        <div class="product-price">2.490.000 VNĐ</div>
+        <ul class="product-features">
+          <li>✔️ Chống ồn chủ động Hybrid ANC lên đến 45dB</li>
+          <li>✔️ Thời lượng pin bền bỉ 60 giờ, sạc nhanh 10 phút</li>
+          <li>✔️ Âm thanh đạt chuẩn Hi-Res Audio Wireless không dây</li>
+        </ul>
+        <div class="product-actions">
+          <button class="btn btn-primary btn-buy-action">🛒 Mua Hàng Ngay</button>
+          <button class="btn btn-outline btn-contact-action">✉️ Tư Vấn Thêm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Component -->
+  <div id="checkout-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-main-heading" class="modal-title">🛒 Xác Nhận Đặt Hàng</h3>
+        <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modal-alert-box" class="modal-alert"></div>
+        <div class="modal-product-summary">
+          <div class="summary-icon">📦</div>
+          <div style="flex-grow: 1;">
+            <div id="modal-product-title" class="summary-title">Bàn Phím Cơ LHU Pro RGB</div>
+            <div id="modal-product-price" class="summary-price">1.890.000 VNĐ</div>
+          </div>
+          <span id="modal-type-badge" class="badge badge-primary">ĐƠN ĐẶT HÀNG</span>
+        </div>
+
+        <form id="modal-checkout-form">
+          <input type="hidden" id="order-product-name" value="Bàn Phím Cơ LHU Pro RGB">
+          <input type="hidden" id="order-action-type" value="buy">
+
+          <div class="form-group">
+            <label for="customer-name" class="form-label">Họ và tên: <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="customer-name" class="form-control" placeholder="Nguyễn Văn An" required>
+          </div>
+
+          <div class="form-group">
+            <label for="customer-phone" class="form-label">Số điện thoại: <span style="color:var(--danger)">*</span></label>
+            <input type="tel" id="customer-phone" class="form-control" placeholder="0912345678" required>
+          </div>
+
+          <div class="form-group">
+            <label for="customer-email" class="form-label">Email:</label>
+            <input type="email" id="customer-email" class="form-control" placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="customer-note" class="form-label">Ghi chú:</label>
+            <textarea id="customer-note" class="form-control" rows="2" placeholder="Địa chỉ giao hàng hoặc nội dung tư vấn..."></textarea>
+          </div>
+
+          <div class="modal-footer" style="padding: 16px 0 0; background: transparent; border: none;">
+            <button type="button" id="modal-cancel-btn" class="btn btn-secondary">Hủy</button>
+            <button type="submit" class="btn btn-primary">Xác Nhận</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/smart_project.js"></script>
+</body>
+</html>

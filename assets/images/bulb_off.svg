@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="100%" height="100%">
+  <!-- Bulb OFF -->
+  <defs>
+    <radialGradient id="bulbGlassOff" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#f1f5f9" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#cbd5e1" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0.8"/>
+    </radialGradient>
+    <linearGradient id="baseMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Hanging cord -->
+  <line x1="100" y1="0" x2="100" y2="40" stroke="#64748b" stroke-width="4"/>
+  
+  <!-- Base socket -->
+  <rect x="85" y="40" width="30" height="16" rx="3" fill="url(#baseMetal)"/>
+  <rect x="88" y="56" width="24" height="6" rx="2" fill="#475569"/>
+  <rect x="90" y="62" width="20" height="6" rx="2" fill="#334155"/>
+  <rect x="92" y="68" width="16" height="5" rx="2" fill="#1e293b"/>
+
+  <!-- Filament (off) -->
+  <path d="M 90 90 L 96 110 L 100 102 L 104 110 L 110 90" fill="none" stroke="#64748b" stroke-width="2"/>
+  
+  <!-- Bulb Glass Outline -->
+  <path d="M 85 73 
+           C 60 85, 45 115, 45 145 
+           C 45 180, 72 205, 100 205 
+           C 128 205, 155 180, 155 145 
+           C 155 115, 140 85, 115 73 Z" 
+        fill="url(#bulbGlassOff)" 
+        stroke="#94a3b8" 
+        stroke-width="3"/>
+  
+  <!-- Highlight / reflection -->
+  <path d="M 60 130 C 58 145, 68 165, 80 175" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+</svg>

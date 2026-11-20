@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="forestSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d6a4f"/>
+      <stop offset="50%" stop-color="#52b788"/>
+      <stop offset="100%" stop-color="#95d5b2"/>
+    </linearGradient>
+    <linearGradient id="waterStream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0fbfc"/>
+      <stop offset="50%" stop-color="#98e5e9"/>
+      <stop offset="100%" stop-color="#2ec4b6"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#forestSky)"/>
+  <!-- Mountain rocks -->
+  <polygon points="100,100 250,500 -50,500" fill="#1b4332"/>
+  <polygon points="700,80 850,500 550,500" fill="#2d6a4f"/>
+  <polygon points="200,150 400,500 150,500" fill="#40916c"/>
+  <polygon points="600,140 750,500 450,500" fill="#2d6a4f"/>
+  <!-- Waterfall -->
+  <path d="M 360 180 L 440 180 L 470 500 L 330 500 Z" fill="url(#waterStream)"/>
+  <!-- Waterfall foam & splash -->
+  <ellipse cx="400" cy="460" rx="140" ry="25" fill="#ffffff" opacity="0.6"/>
+  <ellipse cx="400" cy="480" rx="180" ry="20" fill="#bbf7d0" opacity="0.5"/>
+  <!-- Forest Trees Silhouette -->
+  <polygon points="80,240 60,320 100,320" fill="#081c15"/>
+  <polygon points="120,200 95,290 145,290" fill="#081c15"/>
+  <polygon points="680,210 650,300 710,300" fill="#081c15"/>
+  <polygon points="730,230 705,310 755,310" fill="#081c15"/>
+  <!-- Caption tag -->
+  <rect x="30" y="30" width="220" height="42" rx="21" fill="rgba(0,0,0,0.4)"/>
+  <text x="140" y="57" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">🌲 Thác Nước Rừng Xanh</text>
+</svg>
